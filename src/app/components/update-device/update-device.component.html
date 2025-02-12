@@ -1,0 +1,23 @@
+<form (ngSubmit)="updateDevice()" #formUpdate>
+  <mat-card class="update-form">
+    <mat-card-title class="title">Update Device</mat-card-title>
+    <mat-form-field>
+      <mat-label>Id</mat-label>
+      <input matInput type="text" [(ngModel)]="deviceId" name="id" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="device.name" name="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Device type</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="device.deviceType"
+        name="deviceType"
+      />
+    </mat-form-field>
+    <button class="btn" mat-raised-button type="submit">Update</button>
+  </mat-card>
+</form>

@@ -1,0 +1,55 @@
+<!-- <h3>Device</h3>
+<button (click)="loadDevices()">All Devices</button>
+<div *ngFor="let device of devices">
+  id: {{ device.id }}
+  <br />
+  deviceType: {{ device.deviceType }}
+  <br />
+  name:{{ device.name }}
+  <br />
+  <h4>Shelf Positions:</h4>
+  <ul>
+    <li *ngFor="let shelfPosition of device.shelfPositions">
+      shelfPositionId: {{ shelfPosition.id }}
+    </li>
+  </ul>
+</div> -->
+
+<!-- <input type="text" [(ngModel)]="deviceId" />
+<button (click)="getDeviceById()">Get Device</button> -->
+
+<div class="container-fluid device">
+  <div *ngFor="let device of devices">
+    <div class="card" style="width: 18rem; padding: 2rem">
+      <img
+        src="https://cdn.pixabay.com/photo/2023/01/16/01/34/phone-7721423_1280.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ device.id }}</h5>
+        <p class="card-text">
+          {{ device.name }}
+        </p>
+        <p class="card-text">
+          {{ device.deviceType }}
+        </p>
+        <h5>Shelf Positions:</h5>
+        <ul class="shelfPosition">
+          <p>id:<span>[</span></p>
+          <li *ngFor="let shelfPosition of device.shelfPositions">
+            {{ shelfPosition.id }},
+          </li>
+          <span>]</span>
+        </ul>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteDevice(device.id)"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

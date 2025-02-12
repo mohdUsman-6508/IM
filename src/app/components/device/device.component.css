@@ -1,0 +1,19 @@
+.device {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-top: 1rem;
+}
+
+.shelfPosition {
+  display: flex;
+}
+.shelfPosition li {
+  list-style: none;
+}

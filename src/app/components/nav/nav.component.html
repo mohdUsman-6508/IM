@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="home">IM</a>
+    <a class="navbar-brand" routerLink="home">Inventory Management</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -40,16 +40,65 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            ShelfPosition
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/addShelfPosition"
+                >Add ShelfPosition</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/addShelfPositionToDevice"
+                >Add ShelfPosition to Device</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/shelfPositions"
+                >All ShelfPositions</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Shelf
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/addShelf">Add Shelf</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/addShelfToShelfPosition"
+                >Add Shelf to ShelfPosition</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/shelf">Shelf by id</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/shelves">All Shelves</a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
-
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <button class="btn btn-outline-success">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/devices">Devices</a>
-        </li>
-      </button>
-    </ul>
   </div>
 </nav>
 

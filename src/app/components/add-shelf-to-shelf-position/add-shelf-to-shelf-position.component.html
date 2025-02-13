@@ -1,0 +1,19 @@
+<form (ngSubmit)="addShelfToShelfPosition()" #shelfForm="ngForm">
+  <mat-card class="shelf-form">
+    <mat-card-title class="title">Add Shelf to ShelfPosition</mat-card-title>
+    <mat-form-field>
+      <mat-label> Shelf id </mat-label>
+      <input matInput type="text" name="shelfId" [(ngModel)]="shelfId" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> ShelfPosition id </mat-label>
+      <input
+        matInput
+        type="text"
+        name="shelfPositionId"
+        [(ngModel)]="shelfPositionId"
+      />
+    </mat-form-field>
+    <button class="btn" type="submit">Add</button>
+  </mat-card>
+</form>

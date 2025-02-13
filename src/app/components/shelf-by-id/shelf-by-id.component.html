@@ -1,0 +1,28 @@
+<div>
+  <form (ngSubmit)="getShelf()" #shelfForm="ngForm">
+    <mat-card class="shelf-form">
+      <mat-card-title class="title">Get Shelf</mat-card-title>
+      <mat-form-field>
+        <mat-label> Shelf id </mat-label>
+        <input matInput type="text" name="shelfId" [(ngModel)]="shelfId" />
+      </mat-form-field>
+      <button class="btn" type="submit">Search</button>
+    </mat-card>
+  </form>
+
+  <div *ngIf="shelfFlag" class="container-fluid device">
+    <div class="card" style="width: 18rem; padding: 2rem">
+      <img
+        src="https://cdn.pixabay.com/photo/2020/09/20/12/05/shelf-5586904_1280.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Shelf id: {{ shelf.id }}</h5>
+        <p class="card-text">Name: {{ shelf.name }}</p>
+        <p class="card-text">Shelf type: {{ shelf.shelfType }}</p>
+        <p>ShelfPosition Id: {{ shelf.shelfPositionId }}</p>
+      </div>
+    </div>
+  </div>
+</div>

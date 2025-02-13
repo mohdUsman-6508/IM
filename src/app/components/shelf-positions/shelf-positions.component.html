@@ -1,0 +1,28 @@
+<!-- <h4>Shelf Positions</h4>
+<button (click)="getShelfPosition()">Get</button>
+<ul>
+  <li *ngFor="let shelfPosition of shelfPositions">
+    <p>Shelf Position id: {{ shelfPosition.id }}</p>
+    <p>Name: {{ shelfPosition.name }}</p>
+    <p>Device Id: {{ shelfPosition.deviceId }}</p>
+    <p>Shelf Id: {{ shelfPosition.shelf?.id }}</p>
+  </li>
+</ul> -->
+
+<div class="container-fluid device">
+  <div *ngFor="let shelfPosition of shelfPositions">
+    <div class="card" style="width: 18rem; padding: 2rem">
+      <img
+        src="https://cdn.pixabay.com/photo/2012/04/26/19/46/books-42933_1280.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">Shelf Position id: {{ shelfPosition.id }}</h5>
+        <p class="card-text">Name: {{ shelfPosition.name }}</p>
+        <p class="card-text">Device Id: {{ shelfPosition.deviceId }}</p>
+        <p>Shelf Id: {{ shelfPosition.shelf?.id }}</p>
+      </div>
+    </div>
+  </div>
+</div>

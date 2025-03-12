@@ -10,3 +10,13 @@
 .card {
   margin-top: 1rem;
 }
+
+button {
+  background-color: rgb(104, 104, 247);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 24px;
+  width: 100%;
+  margin-top: 10px;
+}

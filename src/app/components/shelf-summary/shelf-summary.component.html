@@ -1,11 +1,12 @@
 <section class="main-content">
   <h3>Shelf Summary</h3>
-  <div>
-    <p><span>Shelf Name:</span>{{ summary[0] }}</p>
-    <p><span>Shelf Type:</span>{{ summary[1] }}</p>
-    <p><span>ShelfPosition Id:</span>{{ summary[2] }}</p>
-    <p><span>ShelfPosition Id:</span>{{ summary[3] }}</p>
-    <p><span>Device Name:</span>{{ summary[4] }}</p>
-    <p><span>Device Type:</span>{{ summary[5] }}</p>
+  <div class="content">
+    <p><span>Shelf Name:</span>{{ summary.shelfName }}</p>
+    <p><span>Shelf Type:</span>{{ summary.shelfType }}</p>
+    <p><span>ShelfPosition Id:</span>{{ summary.shelfPositionName }}</p>
+    <p><span>ShelfPosition Id:</span>{{ summary.shelfPositionId }}</p>
+    <p><span>Device Name:</span>{{ summary.deviceName }}</p>
+    <p><span>Device Type:</span>{{ summary.deviceType }}</p>
+    <button routerLink="/shelves">Go to Shelves</button>
   </div>
 </section>

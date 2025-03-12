@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ShelfService } from '../../services/shelf.service';
+import { ShelfSummary } from '../../interfaces/shelfSummary';
 
 @Component({
   selector: 'app-shelf-summary',
@@ -10,7 +11,7 @@ import { ShelfService } from '../../services/shelf.service';
 })
 export class ShelfSummaryComponent {
   shelfId!: string;
-  summary: any = [];
+  summary!: ShelfSummary;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,8 +26,8 @@ export class ShelfSummaryComponent {
   }
 
   getSummary(id: string | undefined) {
-    this.shelfService.getShelfSummary(id).subscribe((data) => {
-      this.summary = data;
+    this.shelfService.getShelfSummary(id).subscribe((data: ShelfSummary[]) => {
+      this.summary = data[0];
     });
   }
 }

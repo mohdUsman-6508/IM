@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Shelf } from '../interfaces/shelf';
 import { Observable } from 'rxjs';
+import { ShelfSummary } from '../interfaces/shelfSummary';
 
 @Injectable({
   providedIn: 'root',
@@ -34,8 +35,8 @@ export class ShelfService {
     return this.http.get<Shelf>(apiUrlGetShelfById);
   }
 
-  getShelfSummary(id: string | undefined) {
+  getShelfSummary(id: string | undefined): Observable<ShelfSummary[]> {
     const apiUrlGetShelfSummary = `${this.baseUrl}/shelfSummary/${id}`;
-    return this.http.get(apiUrlGetShelfSummary);
+    return this.http.get<ShelfSummary[]>(apiUrlGetShelfSummary);
   }
 }

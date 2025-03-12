@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ShelfService {
   constructor(private http: HttpClient) {}
 
-  baseUrl: string = `http://localhost:8080/api/shelfService`;
+  readonly baseUrl: string = `http://localhost:8080/api/shelfService`;
 
   addShelf(shelf: Shelf): Observable<Shelf> {
     const apiUrlAddShelf = `${this.baseUrl}/addShelf`;
@@ -32,5 +32,10 @@ export class ShelfService {
   getShelfById(id: number): Observable<Shelf> {
     const apiUrlGetShelfById = `${this.baseUrl}/getShelfById/${id}`;
     return this.http.get<Shelf>(apiUrlGetShelfById);
+  }
+
+  getShelfSummary(id: string | undefined) {
+    const apiUrlGetShelfSummary = `${this.baseUrl}/shelfSummary/${id}`;
+    return this.http.get(apiUrlGetShelfSummary);
   }
 }

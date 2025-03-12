@@ -21,6 +21,7 @@
         <p class="card-text">Name: {{ shelf.name }}</p>
         <p class="card-text">Shelf type: {{ shelf.shelfType }}</p>
         <p>ShelfPosition Id: {{ shelf.shelfPositionId }}</p>
+        <a [routerLink]="['/shelfSummary', shelf.id]">Summary</a>
       </div>
     </div>
   </div>

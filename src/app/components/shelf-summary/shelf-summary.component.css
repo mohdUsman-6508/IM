@@ -1,0 +1,19 @@
+.main-content {
+  width: 700px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: gainsboro;
+  box-shadow: 5px;
+}
+
+h3 {
+  color: rgb(0, 85, 255);
+  text-align: center;
+}
+
+span {
+  font-size: large;
+  margin-right: 10px;
+  font-weight: bold;
+}

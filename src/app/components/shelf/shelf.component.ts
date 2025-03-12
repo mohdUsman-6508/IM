@@ -10,9 +10,7 @@ import { ShelfService } from '../../services/shelf.service';
 })
 export class ShelfComponent {
   constructor(private shelfService: ShelfService) {}
-
   shelves: Shelf[] = [];
-
   ngOnInit() {
     this.getShelves();
   }

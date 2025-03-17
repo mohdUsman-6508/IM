@@ -14,6 +14,10 @@ export class ShelfService {
 
   addShelf(shelf: Shelf): Observable<Shelf> {
     const apiUrlAddShelf = `${this.baseUrl}/addShelf`;
+    if (shelf.name.trim() == '' || shelf.shelfType.trim() == '') {
+      alert('Fields cannot be empty!');
+      throw new Error('Some fields are empty!');
+    }
     return this.http.post<Shelf>(apiUrlAddShelf, shelf);
   }
 
@@ -22,6 +26,13 @@ export class ShelfService {
     shelfPositionId: number
   ): Observable<Shelf> {
     const apiUrlAddShelfToShelfPosition = `${this.baseUrl}/addShelfToShelfPosition/${shelfId}/${shelfPositionId}`;
+    if (
+      shelfId.toString().trim() == '' ||
+      shelfPositionId.toString().trim() == ''
+    ) {
+      alert('Id cannot be empty!');
+      throw new Error('Id is empty!');
+    }
     return this.http.post<Shelf>(apiUrlAddShelfToShelfPosition, {});
   }
 
@@ -32,11 +43,19 @@ export class ShelfService {
 
   getShelfById(id: number): Observable<Shelf> {
     const apiUrlGetShelfById = `${this.baseUrl}/getShelfById/${id}`;
+    if (id.toString().trim() == '') {
+      alert('Id cannot be empty!');
+      throw new Error('Id is empty!');
+    }
     return this.http.get<Shelf>(apiUrlGetShelfById);
   }
 
   getShelfSummary(id: string | undefined): Observable<ShelfSummary[]> {
     const apiUrlGetShelfSummary = `${this.baseUrl}/shelfSummary/${id}`;
+    if (id?.toString().trim() == '') {
+      alert('Id cannot be empty!');
+      throw new Error('Id is empty!');
+    }
     return this.http.get<ShelfSummary[]>(apiUrlGetShelfSummary);
   }
 }

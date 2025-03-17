@@ -9,10 +9,15 @@ import { ShelfPosition } from '../interfaces/shelfPosition';
 export class ShelfPositionService {
   constructor(private http: HttpClient) {}
 
-  baseUrl: string = `http://localhost:8080/api/shelfService`;
+  readonly baseUrl: string = `http://localhost:8080/api/shelfService`;
 
   addShelfPosition(shelfPosition: ShelfPosition): Observable<ShelfPosition> {
     let apiUrlAddShelfPosition = `${this.baseUrl}/addShelfPosition`;
+    if (shelfPosition.name.trim() == '') {
+      alert('Shelf Position name cannot be empty!');
+      throw new Error('Fields are empty!');
+    }
+
     return this.http.post<ShelfPosition>(apiUrlAddShelfPosition, shelfPosition);
   }
 
@@ -21,6 +26,14 @@ export class ShelfPositionService {
     shelfPositionId: number
   ): Observable<any> {
     let apiUrlAddShelfPositionToDevice = `${this.baseUrl}/addShelfPositionToDevice/${deviceId}/${shelfPositionId}`;
+    if (
+      deviceId.toString().trim() == '' ||
+      shelfPositionId.toString().trim() == ''
+    ) {
+      alert('Id cannot be empty!');
+      throw new Error('Fields are empty!');
+    }
+
     return this.http.post<any>(apiUrlAddShelfPositionToDevice, {});
   }
 

@@ -14,11 +14,14 @@ export class UpdateDeviceComponent {
   constructor(private deviceService: DeviceService) {}
 
   updateDevice() {
-    this.deviceService
-      .updateDevice(this.device, this.deviceId)
-      .subscribe(() => {
+    this.deviceService.updateDevice(this.device, this.deviceId).subscribe({
+      next: (res) => {
         alert('Device updated!');
-      });
+      },
+      error: (err) => {
+        alert(err.message);
+      },
+    });
     this.device = { name: '', deviceType: '' };
     this.deviceId = 0;
   }

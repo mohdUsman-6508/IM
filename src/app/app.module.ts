@@ -19,6 +19,7 @@ import { AddShelfComponent } from './components/add-shelf/add-shelf.component';
 import { AddShelfToShelfPositionComponent } from './components/add-shelf-to-shelf-position/add-shelf-to-shelf-position.component';
 import { ShelfByIdComponent } from './components/shelf-by-id/shelf-by-id.component';
 import { ShelfSummaryComponent } from './components/shelf-summary/shelf-summary.component';
+import { ToasterComponent } from './components/toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ShelfSummaryComponent } from './components/shelf-summary/shelf-summary.
     AddShelfToShelfPositionComponent,
     ShelfByIdComponent,
     ShelfSummaryComponent,
+    ToasterComponent,
   ],
   imports: [
     BrowserModule,

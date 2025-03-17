@@ -11,17 +11,26 @@ import { Shelf } from '../../interfaces/shelf';
 export class ShelfByIdComponent {
   shelf: Shelf = { name: '', shelfType: '' };
   shelfId: number = 0;
+  errMessage: string = '';
   constructor(private shelfService: ShelfService) {}
 
   shelfFlag: boolean = false;
 
   getShelf() {
-    this.shelfService.getShelfById(this.shelfId).subscribe((data) => {
-      this.shelf = data;
-      if (data != null) {
-        this.shelfFlag = true;
-      }
+    this.shelfService.getShelfById(this.shelfId).subscribe({
+      next: (data) => {
+        this.shelf = data;
+        if (data != null) {
+          this.shelfFlag = true;
+        }
+      },
+      error: (err) => {
+        this.errMessage = err.message;
+        // alert(this.errMessage);
+      },
     });
     this.shelfId = 0;
   }
+}
+{
 }

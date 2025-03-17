@@ -11,6 +11,7 @@ import { Device } from '../../interfaces/device';
 export class UpdateDeviceComponent {
   device: Device = { name: '', deviceType: '' };
   deviceId: number = 0;
+  errMessage: string = '';
   constructor(private deviceService: DeviceService) {}
 
   updateDevice() {
@@ -19,7 +20,7 @@ export class UpdateDeviceComponent {
         alert('Device updated!');
       },
       error: (err) => {
-        alert(err.message);
+        this.errMessage = err.message;
       },
     });
     this.device = { name: '', deviceType: '' };

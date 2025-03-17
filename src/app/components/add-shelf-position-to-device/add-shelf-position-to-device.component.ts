@@ -10,14 +10,20 @@ import { ShelfPositionService } from '../../services/shelf-position.service';
 export class AddShelfPositionToDeviceComponent {
   deviceId: number = 0;
   shelfPositionId: number = 1;
+  errMessage: string = '';
 
   constructor(private shelfPositionService: ShelfPositionService) {}
 
   addShelfPositionToDevice() {
     this.shelfPositionService
       .addShelfPositionToDevice(this.deviceId, this.shelfPositionId)
-      .subscribe(() => {
-        alert('ShelfPosition added to device!');
+      .subscribe({
+        next: () => {
+          alert('ShelfPosition added to device!');
+        },
+        error: (err) => {
+          this.errMessage = err.message;
+        },
       });
   }
 }

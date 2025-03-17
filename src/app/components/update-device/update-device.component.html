@@ -21,3 +21,6 @@
     <button class="btn" mat-raised-button type="submit">Update</button>
   </mat-card>
 </form>
+<div *ngIf="errMessage">
+  <app-toaster [errorMessage]="errMessage"></app-toaster>
+</div>

@@ -22,7 +22,12 @@
         <p class="card-text">Name: {{ shelf.name }}</p>
         <p class="card-text">Shelf type: {{ shelf.shelfType }}</p>
         <p>ShelfPosition Id: {{ shelf.shelfPositionId }}</p>
+        <button [routerLink]="['/shelfSummary', shelf.id]">Summary</button>
       </div>
     </div>
+  </div>
+
+  <div *ngIf="errMessage">
+    <app-toaster [errorMessage]="errMessage"></app-toaster>
   </div>
 </div>

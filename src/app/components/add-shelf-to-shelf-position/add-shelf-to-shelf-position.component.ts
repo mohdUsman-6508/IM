@@ -12,12 +12,18 @@ export class AddShelfToShelfPositionComponent {
 
   shelfId: number = 0;
   shelfPositionId: number = 1;
+  errMessage: string = '';
 
   addShelfToShelfPosition() {
     this.shelfService
       .addShelfToShelfPosition(this.shelfId, this.shelfPositionId)
-      .subscribe(() => {
-        alert('Shelf added to shelfposition');
+      .subscribe({
+        next: () => {
+          alert('Shelf added to shelfposition');
+        },
+        error: (err) => {
+          this.errMessage = err.message;
+        },
       });
 
     this.shelfId = 0;

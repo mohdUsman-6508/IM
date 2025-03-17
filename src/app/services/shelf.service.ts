@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ErrorHandler, Injectable } from '@angular/core';
 import { Shelf } from '../interfaces/shelf';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { ShelfSummary } from '../interfaces/shelfSummary';
 
 @Injectable({
@@ -33,7 +33,9 @@ export class ShelfService {
       alert('Id cannot be empty!');
       throw new Error('Id is empty!');
     }
-    return this.http.post<Shelf>(apiUrlAddShelfToShelfPosition, {});
+    return this.http
+      .post<Shelf>(apiUrlAddShelfToShelfPosition, {})
+      .pipe(catchError(this.handleError));
   }
 
   getShelves(): Observable<Shelf[]> {
@@ -47,7 +49,9 @@ export class ShelfService {
       alert('Id cannot be empty!');
       throw new Error('Id is empty!');
     }
-    return this.http.get<Shelf>(apiUrlGetShelfById);
+    return this.http
+      .get<Shelf>(apiUrlGetShelfById)
+      .pipe(catchError(this.handleError));
   }
 
   getShelfSummary(id: string | undefined): Observable<ShelfSummary[]> {
@@ -56,6 +60,18 @@ export class ShelfService {
       alert('Id cannot be empty!');
       throw new Error('Id is empty!');
     }
-    return this.http.get<ShelfSummary[]>(apiUrlGetShelfSummary);
+    return this.http
+      .get<ShelfSummary[]>(apiUrlGetShelfSummary)
+      .pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'An unknown error ocurred!';
+    if (error.status === 404) {
+      errorMessage = 'ID does not exist!';
+    } else if (error.status === 500) {
+      errorMessage = 'Server error!';
+    }
+    return throwError(() => new Error(errorMessage));
   }
 }

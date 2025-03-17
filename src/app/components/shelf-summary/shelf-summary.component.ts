@@ -12,6 +12,7 @@ import { ShelfSummary } from '../../interfaces/shelfSummary';
 export class ShelfSummaryComponent {
   shelfId!: string;
   summary!: ShelfSummary;
+  errorMessage = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -26,8 +27,14 @@ export class ShelfSummaryComponent {
   }
 
   getSummary(id: string | undefined) {
-    this.shelfService.getShelfSummary(id).subscribe((data: ShelfSummary[]) => {
-      this.summary = data[0];
+    this.shelfService.getShelfSummary(id).subscribe({
+      next: (data: ShelfSummary[]) => {
+        this.summary = data[0];
+      },
+      error: (err) => {
+        this.errorMessage = err.errorMessage;
+        alert(err.errorMessage);
+      },
     });
   }
 }

@@ -1,6 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { ShelfPosition } from '../interfaces/shelfPosition';
 
 @Injectable({
@@ -34,7 +38,17 @@ export class ShelfPositionService {
       throw new Error('Fields are empty!');
     }
 
-    return this.http.post<any>(apiUrlAddShelfPositionToDevice, {});
+    return this.http.post<any>(apiUrlAddShelfPositionToDevice, {}).pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'An unknown error ocurred!';
+        if (error.status === 404) {
+          errorMessage = 'ID does not exist!';
+        } else if (error.status === 500) {
+          errorMessage = 'Server error!';
+        }
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 
   getShelfPositions(): Observable<ShelfPosition[]> {

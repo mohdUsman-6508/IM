@@ -9,7 +9,7 @@ import { InventorySummary } from '../interfaces/inventorySummary';
 })
 export class DeviceService {
   constructor(private http: HttpClient) {}
-  readonly baseUrl: string = `https://im-backend-qamj.onrender.com`;
+  readonly baseUrl: string = `https://im-backend-kmor.onrender.com`;
 
   getDevices(): Observable<Device[]> {
     return this.http.get<Device[]>(`${this.baseUrl}/getAllDevices`);

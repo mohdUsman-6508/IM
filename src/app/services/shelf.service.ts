@@ -10,7 +10,7 @@ import { ShelfSummary } from '../interfaces/shelfSummary';
 export class ShelfService {
   constructor(private http: HttpClient) {}
 
-  readonly baseUrl: string = `https://im-backend-qamj.onrender.com`;
+  readonly baseUrl: string = `https://im-backend-kmor.onrender.com`;
 
   addShelf(shelf: Shelf): Observable<Shelf> {
     const apiUrlAddShelf = `${this.baseUrl}/addShelf`;

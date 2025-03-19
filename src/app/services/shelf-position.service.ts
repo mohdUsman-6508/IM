@@ -13,7 +13,7 @@ import { ShelfPosition } from '../interfaces/shelfPosition';
 export class ShelfPositionService {
   constructor(private http: HttpClient) {}
 
-  readonly baseUrl: string = `http://localhost:8080/api/shelfService`;
+  readonly baseUrl: string = `https://im-backend-qamj.onrender.com`;
 
   addShelfPosition(shelfPosition: ShelfPosition): Observable<ShelfPosition> {
     let apiUrlAddShelfPosition = `${this.baseUrl}/addShelfPosition`;

@@ -12,7 +12,7 @@ export class DeviceService {
   readonly baseUrl: string = `https://im-backend-qamj.onrender.com`;
 
   getDevices(): Observable<Device[]> {
-    return this.http.get<Device[]>(`${this.baseUrl}/`);
+    return this.http.get<Device[]>(`${this.baseUrl}/getAllDevices`);
   }
 
   getDeviceById(id: number): Observable<Device> {

@@ -1,0 +1,17 @@
+<div class="main-content">
+  <app-inventory-summary-card
+    name="Devices"
+    [totalQuantity]="inventorySummary.totalDevices"
+    link="devices"
+  ></app-inventory-summary-card>
+  <app-inventory-summary-card
+    name="Shelf Positions"
+    [totalQuantity]="inventorySummary.totalShelfPositions"
+    link="shelfPositions"
+  ></app-inventory-summary-card>
+  <app-inventory-summary-card
+    name="Shelves"
+    [totalQuantity]="inventorySummary.totalShelves"
+    link="shelves"
+  ></app-inventory-summary-card>
+</div>

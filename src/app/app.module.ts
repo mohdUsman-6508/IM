@@ -20,6 +20,8 @@ import { AddShelfToShelfPositionComponent } from './components/add-shelf-to-shel
 import { ShelfByIdComponent } from './components/shelf-by-id/shelf-by-id.component';
 import { ShelfSummaryComponent } from './components/shelf-summary/shelf-summary.component';
 import { ToasterComponent } from './components/toaster/toaster.component';
+import { InventorySummaryComponent } from './components/inventory-summary/inventory-summary.component';
+import { InventorySummaryCardComponent } from './components/inventory-summary-card/inventory-summary-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { ToasterComponent } from './components/toaster/toaster.component';
     ShelfByIdComponent,
     ShelfSummaryComponent,
     ToasterComponent,
+    InventorySummaryComponent,
+    InventorySummaryCardComponent,
   ],
   imports: [
     BrowserModule,

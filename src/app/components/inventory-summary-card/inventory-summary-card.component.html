@@ -1,0 +1,13 @@
+<div class="card w-full main">
+  <div class="card-body">
+    <h5 class="card-title">{{ name }}</h5>
+    <p class="card-text">
+      Currently our inventory contains
+      <span class="quantity"> {{ totalQuantity }}</span
+      ><span class="name"> {{ name }}.</span>
+    </p>
+    <button [routerLink]="['/', link]" class="btn btn-primary">
+      All {{ name }}
+    </button>
+  </div>
+</div>

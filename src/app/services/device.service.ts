@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Device } from '../interfaces/device';
+import { InventorySummary } from '../interfaces/inventorySummary';
 
 @Injectable({
   providedIn: 'root',
@@ -55,6 +56,13 @@ export class DeviceService {
       throw new Error('Id is empty!');
     }
     return this.http.delete<Device>(apiUrlDeleteDevice);
+  }
+
+  getInventorySummary(): Observable<InventorySummary[]> {
+    let apiInventorySummaryUrl = `${this.baseUrl}/inventory`;
+    return this.http
+      .get<InventorySummary[]>(apiInventorySummaryUrl)
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

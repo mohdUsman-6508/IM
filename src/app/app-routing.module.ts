@@ -12,6 +12,7 @@ import { AddShelfComponent } from './components/add-shelf/add-shelf.component';
 import { AddShelfToShelfPositionComponent } from './components/add-shelf-to-shelf-position/add-shelf-to-shelf-position.component';
 import { ShelfByIdComponent } from './components/shelf-by-id/shelf-by-id.component';
 import { ShelfSummaryComponent } from './components/shelf-summary/shelf-summary.component';
+import { InventorySummaryComponent } from './components/inventory-summary/inventory-summary.component';
 
 const routes: Routes = [
   { path: 'devices', component: DeviceComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
 
   { path: 'shelf', component: ShelfByIdComponent },
   { path: 'shelfSummary/:id', component: ShelfSummaryComponent },
+  { path: 'dashboard', component: InventorySummaryComponent },
 ];
 
 @NgModule({

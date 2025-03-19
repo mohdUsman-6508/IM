@@ -1,0 +1,7 @@
+.main-content {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  gap: 2rem;
+  margin-top: 7rem;
+}
